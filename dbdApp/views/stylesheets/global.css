@@ -1,0 +1,188 @@
+body
+{
+    background-color: var(whiteSmoke);
+    color: var(gray0);
+}
+
+h3
+{
+    font-family: 'Arial Black',Arial,sans-serif;
+    text-transform: uppercase;
+    font-size: 2.6em;
+    font-weight: 900;
+}
+
+h3 span
+{
+    color: var(red);
+}
+
+a
+{
+    color: var(red);
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: var(red);
+    text-decoration: underline;
+}
+
+#pageHead
+{
+    background-color: var(red);
+    height: 80px;
+    position: relative;
+}
+
+#pageHead h1
+{
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    margin-left: -math(var(pageWidth) / 2)px;
+    display: block;
+    width: 220px;
+    height: 65px;
+}
+
+#pageHead h1 a
+{
+    background: transparent url(var(imgLogo)) no-repeat 0 0;
+    display: block;
+    width: 220px;
+    height: 65px;
+}
+
+#pageHead #nav
+{
+    text-align: right;
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    margin-right: -500px;
+    width: 500px;
+}
+
+#pageHead #nav li
+{
+    display: inline-block;
+    margin-left: 30px;
+}
+
+#pageHead #nav li a
+{
+    color: var(white);
+    font-size: 1.9em;
+}
+
+#pageBody
+{
+    width: var(pageWidth)px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#pageBody .box
+{
+    padding-top: 10px;
+}
+
+#pageBody .box .bound
+{
+    position: relative;
+}
+
+table
+{
+    width: 100%;
+    font-size: 1.3em;
+}
+
+th,td
+{
+    padding: 2px 0;
+}
+
+label,
+input,
+select,
+button
+{
+    display: block;
+    font-size: 1.3em;
+}
+
+input,
+select
+{
+    border: 1px solid var(gray1);
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 420px;
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+    box-shadow: inset 1px 1px 2px var(gray1);
+    -moz-box-shadow: inset 1px 1px 2px var(gray1);
+    -webkit-box-shadow: inset 1px 1px 2px var(gray1);
+}
+
+input
+{
+    width: 410px;
+}
+
+input.datepicker
+{
+    width: 200px;
+    display: inline-block;
+}
+
+select.time
+{
+    width: 60px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+input.checkbox,
+label.checkbox
+{
+    width: auto;
+    display: inline-block;
+}
+
+label.checkbox
+{
+    margin-left: 5px;
+}
+
+button
+{
+    background-color: var(red);
+    border: none;
+    color: var(white);
+    padding: 3px 10px;
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+    box-shadow: 1px 1px 2px var(gray0);
+    -moz-box-shadow: 1px 1px 2px var(gray0);
+    -webkit-box-shadow: 1px 1px 2px var(gray0);
+}
+
+#pageFoot
+{
+    width: var(pageWidth)px;
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.3em;
+    color: var(gray1);
+}

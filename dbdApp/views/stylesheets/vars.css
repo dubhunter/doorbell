@@ -1,0 +1,12 @@
+@variables
+{
+    pageWidth: 1000;
+
+    imgLogo: /images/gfx/twilio-doormonkey-logo.png;
+
+    white: #ffffff;
+    whiteSmoke: #F5F5F5;
+    gray0: #404040;
+    gray1: #cccccc;
+    red: #CA0202;
+}
