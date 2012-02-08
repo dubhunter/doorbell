@@ -1,20 +1,9 @@
 #!/bin/bash
 
-echo "USAGE: ${0} [user]"
+u="apache"
 
-if [ $USER != "root" ]
-then
-        echo "TRY: sudo ${0} ${@}"
-        exit 1
-fi
-
-if [ ${#} -gt 0 ]
-then
-	u=${1}
-
-	echo "Changing ownership to ${u}"
-	chown -R ${u}:svn ./
-fi
+echo "Changing ownership to ${u}"
+chown -R ${u}:apache ./
 
 chmod 775 `find ./ -type d`
 
