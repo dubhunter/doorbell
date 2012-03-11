@@ -1,9 +1,10 @@
 #!/bin/bash
 
 u="apache"
+g="apache"
 
-echo "Changing ownership to ${u}"
-chown -R ${u}:apache ./
+echo "Changing ownership to ${u}:${g}"
+chown -R ${u}:${g} ./
 
 chmod 775 `find ./ -type d`
 
@@ -13,8 +14,8 @@ chmod 664 `find ./ -type f | grep -v "${0}"`
 echo "Fixing special files & dirs"
 chmod 775 ./clearCaches
 chmod 775 ./dbdApp/dbdcli
-#chmod 777 ./dbdApp/cache
-#chmod 777 ./httpdocs/images/cache
-#chmod 777 ./dbdApp/views/.templates_c
+chmod 777 ./dbdApp/cache
+chmod 777 ./dbdApp/assets/images/cache
+chmod 777 ./dbdApp/views/.templates_c
 
 echo "Done..."
