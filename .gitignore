@@ -1,4 +1,0 @@
-dbdApp/cache/[^.]*
-dbdApp/views/.templates_c/[^.]*
-dbdApp/views/.cache/[^.]*
-dbdApp/assets/images/cache/[^.]*
