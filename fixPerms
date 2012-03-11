@@ -14,8 +14,9 @@ chmod 664 `find ./ -type f | grep -v "${0}"`
 echo "Fixing special files & dirs"
 chmod 775 ./clearCaches
 chmod 775 ./dbdApp/dbdcli
-chmod 777 ./dbdApp/cache
-chmod 777 ./dbdApp/assets/images/cache
-chmod 777 ./dbdApp/views/.templates_c
+chmod 775 ./dbdApp/cache
+chmod 775 ./dbdApp/assets/images/cache
+chmod 775 ./dbdApp/views/.templates_c
+chmod 775 ./dbdApp/view/.cache
 
 echo "Done..."
