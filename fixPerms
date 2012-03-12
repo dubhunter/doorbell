@@ -3,20 +3,25 @@
 u="apache"
 g="apache"
 
-echo "Changing ownership to ${u}:${g}"
-chown -R ${u}:${g} ./
+s="${BASH_SOURCE[0]}"
+while [ -h "$s" ] ; do s="$(readlink "$s")"; done
+d="$( cd -P "$( dirname "$s" )" && pwd )"
 
-chmod 775 `find ./ -type d`
+echo "Changing ownership to ${u}:${g}"
+chown -R ${u}:${g} ${d}
+
+chmod 775 `find ${d}/ -type d`
 
 echo "Changing files to 0664"
-chmod 664 `find ./ -type f | grep -v "${0}"`
+chmod 664 `find ${d}/ -type f`
 
 echo "Fixing special files & dirs"
-chmod 775 ./clearCaches
-chmod 775 ./dbdApp/dbdcli
-chmod 775 ./dbdApp/cache
-chmod 775 ./dbdApp/assets/images/cache
-chmod 775 ./dbdApp/views/.templates_c
-chmod 775 ./dbdApp/view/.cache
+chmod 775 ${d}/clearCaches
+chmod 775 ${d}/fixPerms
+chmod 775 ${d}/dbdApp/dbdcli
+chmod 775 ${d}/dbdApp/cache
+chmod 775 ${d}/dbdApp/assets/images/cache
+chmod 775 ${d}/dbdApp/views/.templates_c
+chmod 775 ${d}/dbdApp/views/.cache
 
 echo "Done..."
