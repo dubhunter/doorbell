@@ -42,7 +42,7 @@ require_once(DBD_MVC_DIR."dbdMVC.php");
 dbdMVC::setErrorController("DMError");
 dbdMVC::setFallbackController("DMController");
 
-dbdMVC::setAppName("Twilio Door Monkey");
+dbdMVC::setAppName("Twilio Doorbell");
 
 /**
  * Run dbdMVC application.

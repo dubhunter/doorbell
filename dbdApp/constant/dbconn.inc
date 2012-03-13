@@ -15,7 +15,7 @@ define('DBCONN_INCLUDED', true);
 /**
  * Constant default database name if none is specified at connection time
  */
-define('DBCONN_DEFAULT_DB', 'alibaba');
+define('DBCONN_DEFAULT_DB', 'doorbell');
 
 /**
  * Database connection strings
