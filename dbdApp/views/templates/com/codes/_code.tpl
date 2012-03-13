@@ -1,7 +1,7 @@
 {* dbdSmarty *}
 <div id="code" class="box">
 	<h3>{if $access_code_id}Edit{else}Add{/if} <span>Access Code</span></h3>
-	<form name="access_code_form" id="access_code_form" method="post" action="{dbduri c='index' a='processCode' p="access_code_id,`$access_code_id`"}">
+	<form name="access_code_form" id="access_code_form" method="post" action="{dbduri r=$page_url a='process' p="access_code_id,`$access_code_id`"}">
 		<label for="name">Name</label>
 		<input type="text" name="name" id="name" value="{$name}" />
 

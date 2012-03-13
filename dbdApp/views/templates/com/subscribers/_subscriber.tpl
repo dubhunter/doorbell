@@ -1,7 +1,7 @@
 {* dbdSmarty *}
 <div id="subscriber" class="box">
 	<h3>{if $subscriber_id}Edit{else}Add{/if} <span>Subscriber</span></h3>
-	<form name="subscriber_form" id="subscriber_form" method="post" action="{dbduri c='index' a='processSubscriber' p="subscriber_id,`$subscriber_id`"}">
+	<form name="subscriber_form" id="subscriber_form" method="post" action="{dbduri r=$page_url a='process' p="subscriber_id,`$subscriber_id`"}">
 		<label for="name">Name</label>
 		<input type="text" name="name" id="name" value="{$name}" />
 

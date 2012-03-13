@@ -39,6 +39,16 @@ require_once(DBD_MVC_DIR."dbdMVC.php");
  */
 //dbdMVC::setDebugMode(DBD_DEBUG_HTML);
 
+dbdURI::setPositionList('codes', 'edit', array('access_code_id'));
+dbdURI::setPositionList('codes', 'process', array('access_code_id'));
+dbdURI::setPositionList('codes', 'delete', array('access_code_id'));
+dbdURI::setPositionList('operators', 'edit', array('operator_id'));
+dbdURI::setPositionList('operators', 'process', array('operator_id'));
+dbdURI::setPositionList('operators', 'delete', array('operator_id'));
+dbdURI::setPositionList('subscribers', 'edit', array('subscriber_id'));
+dbdURI::setPositionList('subscribers', 'process', array('subscriber_id'));
+dbdURI::setPositionList('subscribers', 'delete', array('subscriber_id'));
+
 dbdMVC::setErrorController("DMError");
 dbdMVC::setFallbackController("DMController");
 

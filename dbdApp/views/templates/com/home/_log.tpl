@@ -1,6 +1,6 @@
 {* dbdSmarty *}
 <div id="log" class="box">
-	<h3>Access <span>Log</span> - <a href="{dbduri c='index' a='code'}" title="Add Access Code">Add Code+</a></h3>
+	<h3>Access <span>Log</span> - <a href="{dbduri c='codes' a='edit'}" title="Add Access Code">Add Code+</a></h3>
 	<table>
 		<tr>
 			<th>Name</th>

@@ -10,7 +10,7 @@
 {if $page_desc}
 	<meta name="description" content="{$page_desc}" />
 {/if}
-	<link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 	<title>{$app_name} - {$page_title|default:'Home'}</title>
 </head>
 <body>
