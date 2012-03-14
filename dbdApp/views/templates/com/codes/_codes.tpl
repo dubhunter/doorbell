@@ -1,7 +1,7 @@
 {* dbdSmarty *}
 <div id="codes" class="box">
 	<h3>Access <span>Codes</span> - <a href="{dbduri c='codes' a='edit'}" title="Add Access Code">Add+</a></h3>
-
+	<h4>Note: Access codes are only valid during the time specified.</h4>
 	<table>
 		<tr>
 			<th>Name</th>

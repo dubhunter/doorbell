@@ -1,6 +1,7 @@
 {* dbdSmarty *}
 <div id="log" class="box">
 	<h3>Access <span>Log</span> - <a href="{dbduri c='codes' a='edit'}" title="Add Access Code">Add Code+</a></h3>
+	<h4>Here is the list of everyone who has enetered the front door (up to 50). Click <strong>Add +</strong> to create a new one.</h4>
 	<table>
 		<tr>
 			<th>Name</th>

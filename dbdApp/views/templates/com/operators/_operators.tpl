@@ -1,6 +1,7 @@
 {* dbdSmarty *}
 <div id="operators" class="box">
 	<h3>Operators - <a href="{dbduri r=$page_url a='edit'}" title="Add Operator">Add+</a></h3>
+	<h4>Note: Operators will be called when someone at the front door asks for the front desk.</h4>
 	<table>
 		<tr>
 			<th>Name</th>

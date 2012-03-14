@@ -17,6 +17,14 @@ h3 span
     color: var(red);
 }
 
+h4
+{
+	font-weight: normal;
+	font-style: italic;
+	font-size: 1.1em;
+	margin-bottom: 10px;
+}
+
 a
 {
     color: var(red);

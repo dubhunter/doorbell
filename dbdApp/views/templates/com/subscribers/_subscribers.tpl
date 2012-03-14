@@ -1,6 +1,7 @@
 {* dbdSmarty *}
 <div id="subscribers" class="box">
 	<h3>Subscribers - <a href="{dbduri r=$page_url a='edit'}" title="Add Subscriber">Add+</a></h3>
+	<h4>Note: Subscribers can be notified when a code is entered at the front door.</h4>
 	<table>
 		<tr>
 			<th>Name</th>
