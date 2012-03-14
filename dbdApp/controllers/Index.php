@@ -1,5 +1,5 @@
 <?php
-class Index extends DMController
+class Index extends DBController
 {
 	public function doDefault()
 	{

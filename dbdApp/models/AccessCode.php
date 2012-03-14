@@ -14,7 +14,7 @@ class AccessCode extends dbdModel
 		if (count($C) == 1 && strtotime($C[0]->valid_from) < time() && strtotime($C[0]->valid_to) > time())
 			return $C[0];
 		else
-			throw new DMException(DMException::UNAUTHORIZED);
+			throw new DBException(DBException::UNAUTHORIZED);
 	}
 
 	protected static function isUnique($code)
@@ -28,6 +28,13 @@ class AccessCode extends dbdModel
 		for ($i = 0; $i < self::CODE_LENGTH; $i++)
 			$code .= rand(0, 9);
 		return self::isUnique($code) ? $code : $this->genCode();
+	}
+
+	public function setPhone($phone)
+	{
+		$phone = preg_replace('/[\- .]+/', '', $phone);
+		$phone = preg_replace('/^\+?1/', '', $phone);
+		parent::setPhone($phone);
 	}
 
 	public function setValidFrom($date)
@@ -64,24 +71,29 @@ class AccessCode extends dbdModel
 
 	public function save($fields = array())
 	{
-		DMException::hold();
-		DMException::ensure(key_exists(self::TABLE_FIELD_NAME, $fields) || $this->hasName(), DMException::REQ_NAME);
-		DMException::ensure(key_exists(self::TABLE_FIELD_PHONE, $fields) || $this->hasPhone(), DMException::REQ_PHONE);
-		DMException::release();
+		DBException::hold();
+		DBException::ensure(isset($fields[self::TABLE_FIELD_NAME]) || $this->hasName(), DBException::REQ_NAME);
+		DBException::ensure(isset($fields[self::TABLE_FIELD_PHONE]) || $this->hasPhone(), DBException::REQ_PHONE);
+		DBException::release();
 
 		if ($this->id == 0)
 		{
 			$this->setCode($this->genCode());
 			$this->setDateCreated(dbdDB::date());
 		}
-		if (key_exists('valid_from_date', $fields))
+		if (isset($fields['phone']))
+		{
+			$this->setPhone($fields['phone']);
+			unset($fields['phone']);;
+		}
+		if (isset($fields['valid_from_date']))
 		{
 			$this->setValidFrom($fields['valid_from_date'].' '.$fields['valid_from_time_hour'].':'.$fields['valid_from_time_minute'].':00');
 			unset($fields['valid_from_date']);
 			unset($fields['valid_from_time_hour']);
 			unset($fields['valid_from_time_minute']);
 		}
-		if (key_exists('valid_to_date', $fields))
+		if (isset($fields['valid_to_date']))
 		{
 			$this->setValidTo($fields['valid_to_date'].' '.$fields['valid_to_time_hour'].':'.$fields['valid_to_time_minute'].':00');
 			unset($fields['valid_to_date']);
@@ -89,7 +101,7 @@ class AccessCode extends dbdModel
 			unset($fields['valid_to_time_minute']);
 		}
 		parent::save($fields);
-		$this->setSubscribers(key_exists('subscriber_ids', $fields) ? $fields['subscriber_ids'] : array());
+		$this->setSubscribers(isset($fields['subscriber_ids']) ? $fields['subscriber_ids'] : array());
 	}
 
 	public function getData()

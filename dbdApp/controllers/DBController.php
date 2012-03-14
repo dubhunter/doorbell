@@ -1,5 +1,5 @@
 <?php
-class DMController extends dbdController
+class DBController extends dbdController
 {
 	const TWILIO_ACCOUNT_SID = 'ACf7d694e6baef4b6aa83aa97c3f626163';
 	const TWILIO_AUTH_TOKEN = '37d322d2ab10aee0895e0b62c97d2422';
@@ -11,8 +11,8 @@ class DMController extends dbdController
 
 	protected function init()
 	{
-		$this->view->addCss('import.css');
-		$this->view->addJs('doormonkey.js');
+		$this->view->addCss('doorbell.css');
+		$this->view->addJs('doorbell.js');
 		header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 	}
 
@@ -39,7 +39,7 @@ class DMController extends dbdController
 	{
 		if ($this->response_code >= 400 && $this->response_code < 500)
 		{
-			header("HTTP/1.1 ".$this->response_code." ".DMException::g($this->response_code));
+			header("HTTP/1.1 ".$this->response_code." ".DBException::g($this->response_code));
 			exit(0);
 		}
 	}
@@ -64,9 +64,9 @@ class DMController extends dbdController
 	{
 		try
 		{
-			DMException::ensure($this->validateTwilioRequest(), DMException::FORBIDDEN);
+			DBException::ensure($this->validateTwilioRequest(), DBException::FORBIDDEN);
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->setErrorHeader();

@@ -1,5 +1,5 @@
 <?php
-class DMError extends DMController
+class DBError extends DBController
 {
 	public function doDefault()
 	{

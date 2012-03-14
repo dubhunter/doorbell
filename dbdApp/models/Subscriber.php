@@ -17,10 +17,10 @@ class Subscriber extends dbdModel
 
 	public function save($fields = array())
 	{
-		DMException::hold();
-		DMException::ensure(key_exists(self::TABLE_FIELD_NAME, $fields) || $this->hasName(), DMException::REQ_NAME);
-		DMException::ensure(key_exists(self::TABLE_FIELD_PHONE, $fields) || $this->hasPhone(), DMException::REQ_PHONE);
-		DMException::release();
+		DBException::hold();
+		DBException::ensure(isset($fields[self::TABLE_FIELD_NAME]) || $this->hasName(), DBException::REQ_NAME);
+		DBException::ensure(isset($fields[self::TABLE_FIELD_PHONE]) || $this->hasPhone(), DBException::REQ_PHONE);
+		DBException::release();
 
 		if ($this->id == 0)
 		{

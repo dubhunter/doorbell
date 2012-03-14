@@ -1,5 +1,5 @@
 <?php
-class Subscribers extends DMController
+class Subscribers extends DBController
 {
 	public function doDefault()
 	{
@@ -31,7 +31,7 @@ class Subscribers extends DMController
 			$S->save($p);
 			$this->forward(dbdURI::create('subscribers'));
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->assignAllParams();
@@ -47,7 +47,7 @@ class Subscribers extends DMController
 			$S->delete();
 			$this->forward(dbdURI::create('subscribers'));
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->assignAllParams();

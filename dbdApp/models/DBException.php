@@ -1,5 +1,5 @@
 <?php
-class DMException extends dbdHoldableException
+class DBException extends dbdHoldableException
 {
 	const BAD_REQUEST = 400;
 	const UNAUTHORIZED = 401;
@@ -25,7 +25,7 @@ class DMException extends dbdHoldableException
 	public static function g($code)
 	{
 		$key = "error".$code;
-		return key_exists($key, self::$msgs) ? self::$msgs[$key] : get_class().": Message for code ".$code." could not be found.";
+		return isset(self::$msgs[$key]) ? self::$msgs[$key] : get_class().": Message for code ".$code." could not be found.";
 	}
 
 	public static function ensure($expr, $code)

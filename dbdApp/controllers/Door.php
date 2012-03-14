@@ -1,5 +1,5 @@
 <?php
-class Door extends DMController
+class Door extends DBController
 {
 	protected function init()
 	{
@@ -22,7 +22,7 @@ class Door extends DMController
 				$this->sendSMS($S->getPhone(), $AC->getName()." just walked in the front door.");
 			$this->setTemplate('twiml.open.tpl');
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->setTemplate('twiml.invalid.tpl');
 		}

@@ -1,5 +1,5 @@
 <?php
-class Codes extends DMController
+class Codes extends DBController
 {
 	public function doDefault()
 	{
@@ -29,12 +29,13 @@ class Codes extends DMController
 		try
 		{
 			$AC = new AccessCode($this->getParam('access_code_id'));
+			$oldPhone = $AC->getPhone();
 			$AC->save($this->getParams());
-			if (!$this->getParam('access_code_id'))
+			if ($AC->getPhone() != $oldPhone)
 				$this->sendSMS($AC->getPhone(), "Your Twilio front door access code: ".$AC->getCode());
 			$this->forward(dbdURI::create('codes'));
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->assignAllParams();
@@ -50,7 +51,7 @@ class Codes extends DMController
 			$AC->delete();
 			$this->forward(dbdURI::create('codes'));
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->assignAllParams();

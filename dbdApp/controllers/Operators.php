@@ -1,5 +1,5 @@
 <?php
-class Operators extends DMController
+class Operators extends DBController
 {
 	public function doDefault()
 	{
@@ -31,7 +31,7 @@ class Operators extends DMController
 			$O->save($p);
 			$this->forward(dbdURI::create('operators'));
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->assignAllParams();
@@ -47,7 +47,7 @@ class Operators extends DMController
 			$O->delete();
 			$this->forward(dbdURI::create('operators'));
 		}
-		catch (DMException $e)
+		catch (DBException $e)
 		{
 			$this->e($e);
 			$this->assignAllParams();

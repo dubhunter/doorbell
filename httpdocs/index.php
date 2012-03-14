@@ -49,8 +49,8 @@ dbdURI::setPositionList('subscribers', 'edit', array('subscriber_id'));
 dbdURI::setPositionList('subscribers', 'process', array('subscriber_id'));
 dbdURI::setPositionList('subscribers', 'delete', array('subscriber_id'));
 
-dbdMVC::setErrorController("DMError");
-dbdMVC::setFallbackController("DMController");
+dbdMVC::setErrorController("DBError");
+dbdMVC::setFallbackController("DBController");
 
 dbdMVC::setAppName("Twilio Doorbell");
 
