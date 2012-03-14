@@ -171,20 +171,22 @@ label.checkbox
 
 button
 {
-    background-color: var(red);
-    border: none;
-    color: var(white);
-    padding: 3px 10px;
+	text-indent: -99999px;
+/*
+	background-color: var(red);
+	border: none;
+	color: var(white);
+	padding: 3px 10px;
 
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
 
-    box-shadow: 1px 1px 2px var(gray0);
-    -moz-box-shadow: 1px 1px 2px var(gray0);
-    -webkit-box-shadow: 1px 1px 2px var(gray0);
+	box-shadow: 1px 1px 2px var(gray0);
+	-moz-box-shadow: 1px 1px 2px var(gray0);
+	-webkit-box-shadow: 1px 1px 2px var(gray0);
+*/
 }
-
 #pageFoot
 {
     width: var(pageWidth)px;

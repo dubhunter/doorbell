@@ -2,31 +2,12 @@
 {
 	offset: 0;
 	cache: /images/cache/;
-	src: /images/src/;
+	src: /images/btns/;
 
-	@generated
+	button#submit
 	{
-		font: /usr/share/fonts/HelveticaNeueBold.ttf;
-
-		#button
-		{
-			font-size: 14;
-			font-color: #FFFFFF;
-			min-text-width: 160;
-			cap-width: 25;
-			src-body: button_large_body.png;
-			src-high: button_large_high.png;
-			src-body-hover: button_large_hover.png;
-			src-high-hover: button_large_high.png;
-			src-body-active: button_large_active.png;
-			src-high-active: button_large_high_active.png;
-		}
-	}
-
-	input.upload2
-	{
-		generated: button;
-		foreground-color: #2c0000;
-		text: Upload Something Dude!!!;
+		background-image: save.png;
+		background-image-hover: save-hover.png;
+		background-image-active: save-active.png;
 	}
 }
