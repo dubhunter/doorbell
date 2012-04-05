@@ -1,11 +1,11 @@
 <?php
 class Door extends DBController
 {
-	protected function init()
-	{
-		parent::init();
-		$this->ensureTwilio();
-	}
+//	protected function init()
+//	{
+//		parent::init();
+//		$this->ensureTwilio();
+//	}
 
 	public function doDefault()
 	{
