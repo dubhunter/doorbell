@@ -9,7 +9,7 @@
  */
 define("DBD_DOC_ROOT", dirname(__FILE__));
 define("DBD_APP_DIR", realpath(DBD_DOC_ROOT."/../dbdApp")."/");
-define("DBD_MVC_DIR", "/usr/local/dbdMVC2/");
+define("DBD_MVC_DIR", "/var/www/dbdMVC2/");
 //define("PEAR_DIR", "/usr/share/pear");
 
 require_once(DBD_MVC_DIR."dbdMVC.php");
