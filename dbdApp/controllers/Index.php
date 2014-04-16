@@ -11,4 +11,4 @@ class Index extends DBController
 		$this->setTemplate('index.tpl');
 	}
 }
-?>
+

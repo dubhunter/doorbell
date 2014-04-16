@@ -29,4 +29,3 @@ class Operator extends dbdModel
 		parent::save($fields);
 	}
 }
-?>

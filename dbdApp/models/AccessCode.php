@@ -113,4 +113,3 @@ class AccessCode extends dbdModel
 		return $data;
 	}
 }
-?>

@@ -90,4 +90,4 @@ class DBController extends dbdController {
 	}
 }
 
-?>
+

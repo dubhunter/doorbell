@@ -29,4 +29,3 @@ class AccessLog extends dbdModel
 		return $data;
 	}
 }
-?>

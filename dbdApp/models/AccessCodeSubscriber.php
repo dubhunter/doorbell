@@ -49,4 +49,3 @@ class AccessCodeSubscriber extends dbdModel
 		return $data;
 	}
 }
-?>

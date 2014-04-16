@@ -37,4 +37,4 @@ class Door extends DBController
 		$this->setTemplate('twiml.operator.tpl');
 	}
 }
-?>
+

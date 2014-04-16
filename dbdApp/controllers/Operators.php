@@ -55,4 +55,4 @@ class Operators extends DBController
 		}
 	}
 }
-?>
+

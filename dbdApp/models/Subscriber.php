@@ -29,4 +29,3 @@ class Subscriber extends dbdModel
 		parent::save($fields);
 	}
 }
-?>

@@ -55,4 +55,4 @@ class Subscribers extends DBController
 		}
 	}
 }
-?>
+

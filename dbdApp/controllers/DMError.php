@@ -6,4 +6,4 @@ class DBError extends DBController
 		dbdError::doError($this);
 	}
 }
-?>
+
