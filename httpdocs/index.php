@@ -39,6 +39,9 @@ require_once(DBD_MVC_DIR."dbdMVC.php");
  */
 //dbdMVC::setDebugMode(DBD_DEBUG_HTML);
 
+dbdRequest::addRewrite('#^(.+\.css)$#i', '/dbdCSS/combine/?files=$1');
+dbdRequest::addRewrite('#^(.+\.js)$#i', '/dbdJS/combine/?files=$1');
+
 dbdURI::setPositionList('codes', 'edit', array('access_code_id'));
 dbdURI::setPositionList('codes', 'process', array('access_code_id'));
 dbdURI::setPositionList('codes', 'delete', array('access_code_id'));
