@@ -38,6 +38,7 @@ class DBController extends dbdController {
 	}
 
 	protected function validateTwilioRequest() {
+		dbdLog($_SERVER);
 		$str = ($this->router->getParam('HTTPS') ? 'https' : 'http') . '://' . $this->router->getParam('SERVER_NAME') . $this->router->getParam('REQUEST_URI');
 		if (strlen(dbdMVC::getRequest()->getServer('QUERY_STRING'))) {
 			$str .= '?' . dbdMVC::getRequest()->getServer('QUERY_STRING');
