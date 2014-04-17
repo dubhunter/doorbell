@@ -95,6 +95,7 @@ class DBController extends dbdController {
 			'Body' => $body,
 		);
 		$response = $TRC->request('/' . TWILIO_VERSION . '/Accounts/' . TWILIO_ACCOUNT_SID . '/SMS/Messages', 'POST', $sms);
+		dbdLog($response);
 		return $response;
 	}
 }
