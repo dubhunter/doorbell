@@ -90,12 +90,11 @@ class DBController extends dbdController {
 	protected function sendSMS($to, $body) {
 		$TRC = $this->getTwilioClient();
 		$sms = array(
-			'From' => NUMBER_BAY_STREET,
+			'From' => TWILIO_NUMBER,
 			'To' => $to,
 			'Body' => $body,
 		);
 		$response = $TRC->request('/' . TWILIO_VERSION . '/Accounts/' . TWILIO_ACCOUNT_SID . '/SMS/Messages', 'POST', $sms);
-		dbdLog($response);
 		return $response;
 	}
 }
