@@ -32,7 +32,7 @@ class Codes extends DBController
 			$oldPhone = $AC->getPhone();
 			$AC->save($this->getParams());
 			if ($AC->getPhone() != $oldPhone) {
-				$response = $this->sendSMS($AC->getPhone(), "Your Twilio front door access code: ".$AC->getCode());
+				$response = $this->sendSMS($AC->getPhone(), "Your front door access code for Will & Christine's place: ".$AC->getCode());
 				dbdLog($response);
 			}
 			$this->forward(dbdURI::create('codes'));
