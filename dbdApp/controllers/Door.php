@@ -24,11 +24,13 @@ class Door extends DBController {
 	}
 
 	public function doOperator() {
+		self::loadTwilioCredentials();
 		$operators = array();
 		foreach (Operator::getAll(true) as $O) {
 			$operators[] = $O->getPhone();
 		}
 		$this->view->assign('operators', $operators);
+		$this->view->assign('callerId', '+1' . str_replace('-', '', NUMBER_BAY_STREET));
 		$this->setTemplate('twiml.operator.tpl');
 	}
 }

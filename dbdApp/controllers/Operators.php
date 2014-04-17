@@ -7,7 +7,6 @@ class Operators extends DBController {
 			$operators[] = $O->getData();
 		}
 		$this->view->assign('operators', $operators);
-		$this->view->assign('callerId', '+1' . str_replace('-', '', NUMBER_BAY_STREET));
 		$this->setTemplate('operators.tpl');
 	}
 
