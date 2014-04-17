@@ -1,4 +1,5 @@
 <?php
+
 class DBController extends dbdController {
 
 	const TWILIO_CREDENTIALS = 'constant/twilio.inc';
