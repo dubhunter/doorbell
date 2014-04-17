@@ -90,7 +90,7 @@ class DBController extends dbdController {
 	protected function sendSMS($to, $body) {
 		$TRC = $this->getTwilioClient();
 		$sms = array(
-			'From' => TWILIO_NUMBER,
+			'From' => NUMBER_BAY_STREET,
 			'To' => $to,
 			'Body' => $body,
 		);
