@@ -38,16 +38,18 @@ class DBController extends dbdController {
 	}
 
 	protected function validateTwilioRequest() {
-		$str = $this->getURL(false, true);
-		if (strlen(dbdMVC::getRequest()->getServer('QUERY_STRING')))
+		$str = ($this->router->getParam('HTTPS') ? 'https' : 'http') . '://' . $this->router->getParam('SERVER_NAME') . $this->router->getParam('REQUEST_URI');
+		if (strlen(dbdMVC::getRequest()->getServer('QUERY_STRING'))) {
 			$str .= '?' . dbdMVC::getRequest()->getServer('QUERY_STRING');
+		}
 		if ($this->getRequestMethod() == 'POST') {
 			$data = dbdMVC::getRequest()->getPost();
 			ksort($data);
-			foreach ($data as $k => $v)
+			foreach ($data as $k => $v) {
 				$str .= $k . $v;
+			}
 		}
-		$str = base64_encode(hash_hmac("sha1", $str, self::TWILIO_AUTH_TOKEN, true));
+		$str = base64_encode(hash_hmac("sha1", $str, TWILIO_AUTH_TOKEN, true));
 		return $str == dbdMVC::getRequest()->getHeader('X-Twilio-Signature');
 	}
 
@@ -60,20 +62,25 @@ class DBController extends dbdController {
 		}
 	}
 
+	protected function loadTwilioCredentials() {
+		// if we have the creds, just return
+		if (defined('TWILIO_ACCOUNT_SID') && defined('TWILIO_AUTH_TOKEN')) {
+			return;
+		}
+		dbdLoader::load(self::TWILIO_CREDENTIALS);
+		// if we couldn't have 'em, throw
+		if (!(defined('TWILIO_ACCOUNT_SID') && defined('TWILIO_AUTH_TOKEN'))) {
+			throw new dbdException('Twilio credentials file could not be included. PATH=' . self::TWILIO_CREDENTIALS);
+		}
+	}
+
 	/**
 	 * @throws dbdException
 	 * @return TwilioRestClient
 	 */
 	protected static function getTwilioClient() {
 		if (self::$twilio_client === null) {
-			// if we don't have the creds, try to load them
-			if (!(defined('TWILIO_ACCOUNT_SID') && defined('TWILIO_AUTH_TOKEN'))) {
-				dbdLoader::load(self::TWILIO_CREDENTIALS);
-				// if we still don't have 'em, throw
-				if (!(defined('TWILIO_ACCOUNT_SID') && defined('TWILIO_AUTH_TOKEN'))) {
-					throw new dbdException('Twilio credentials file could not be included. PATH=' . self::TWILIO_CREDENTIALS);
-				}
-			}
+			self::loadTwilioCredentials();
 			static::$twilio_client = new TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 		}
 		return static::$twilio_client;
