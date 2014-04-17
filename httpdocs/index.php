@@ -4,7 +4,7 @@
  *
  * @package dbdMVC
  * @version 1.4
- * @author Don't Blink Design <info@dontblinkdesign.com>
+ * @author Don't Blink Design <get@willmason.me>
  * @copyright Copyright (c) 2006-2009 by Don't Blink Design
  */
 define("DBD_DOC_ROOT", dirname(__FILE__));
