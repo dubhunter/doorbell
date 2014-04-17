@@ -50,7 +50,8 @@ class DBController extends dbdController {
 				$str .= $k . $v;
 			}
 		}
-		$str = base64_encode(hash_hmac("sha1", $str, TWILIO_AUTH_TOKEN, true));
+		self::loadTwilioCredentials();
+		$str = base64_encode(hash_hmac('sha1', $str, TWILIO_AUTH_TOKEN, true));
 		return $str == dbdMVC::getRequest()->getHeader('X-Twilio-Signature');
 	}
 
