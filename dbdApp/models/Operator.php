@@ -15,6 +15,12 @@ class Operator extends dbdModel {
 		return parent::getAll($keys);
 	}
 
+	public function setPhone($phone) {
+		$phone = preg_replace('/[\- .]+/', '', $phone);
+		$phone = preg_replace('/^\+?1/', '', $phone);
+		parent::setPhone($phone);
+	}
+
 	public function save($fields = array()) {
 		DBException::hold();
 		DBException::ensure(isset($fields[self::TABLE_FIELD_NAME]) || $this->hasName(), DBException::REQ_NAME);
@@ -23,6 +29,10 @@ class Operator extends dbdModel {
 
 		if ($this->id == 0) {
 			$this->setActive(1);
+		}
+		if (isset($fields['phone'])) {
+			$this->setPhone($fields['phone']);
+			unset($fields['phone']);;
 		}
 		parent::save($fields);
 	}

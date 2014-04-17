@@ -16,7 +16,7 @@ class Door extends DBController {
 			$AC = AccessCode::getByCode($this->getParam('Digits'));
 			AccessLog::log($AC->getId());
 			foreach (array_merge(Subscriber::getAll(true), AccessCodeSubscriber::getAllSubscribers($AC->getId())) as $S) {
-				$this->sendSMS($S->getPhone(), $AC->getName() . " just walked in the front door.");
+				$this->sendSMS($S->getPhone(), $AC->getName() . ' just entered the building.');
 			}
 			$this->setTemplate('twiml.open.tpl');
 		} catch (DBException $e) {
