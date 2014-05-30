@@ -77,16 +77,24 @@ class AccessCode extends dbdModel {
 			unset($fields['phone']);;
 		}
 		if (isset($fields['valid_from_date'])) {
+			if ($fields['valid_from_time_meridian'] == 'pm') {
+				$fields['valid_from_time_hour'] += 12;
+			}
 			$this->setValidFrom($fields['valid_from_date'] . ' ' . $fields['valid_from_time_hour'] . ':' . $fields['valid_from_time_minute'] . ':00');
 			unset($fields['valid_from_date']);
 			unset($fields['valid_from_time_hour']);
 			unset($fields['valid_from_time_minute']);
+			unset($fields['valid_from_time_meridian']);
 		}
 		if (isset($fields['valid_to_date'])) {
+			if ($fields['valid_to_time_meridian'] == 'pm') {
+				$fields['valid_to_time_hour'] += 12;
+			}
 			$this->setValidTo($fields['valid_to_date'] . ' ' . $fields['valid_to_time_hour'] . ':' . $fields['valid_to_time_minute'] . ':00');
 			unset($fields['valid_to_date']);
 			unset($fields['valid_to_time_hour']);
 			unset($fields['valid_to_time_minute']);
+			unset($fields['valid_to_time_meridian']);
 		}
 		parent::save($fields);
 		$this->setSubscribers(isset($fields['subscriber_ids']) ? $fields['subscriber_ids'] : array());
