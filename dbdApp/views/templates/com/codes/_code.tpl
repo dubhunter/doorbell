@@ -46,6 +46,9 @@
 			</select>
 		</div>
 
+		<label for="code">Code (optional)</label>
+		<input type="text" name="code" id="code" value="{$code}"{if $access_code_id} disabled{/if} />
+
 		<label for="subscriber_ids">Subscribers</label>
 		<select name="subscriber_ids[]" id="subscriber_ids" multiple="multiple">
 		{foreach from=$subscribers item=s}
