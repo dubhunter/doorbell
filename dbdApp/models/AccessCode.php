@@ -70,7 +70,7 @@ class AccessCode extends dbdModel {
 
 		if ($this->id == 0) {
 			if (!(isset($fields['code']) && strlen($fields['code']) == self::CODE_LENGTH)) {
-				$this->setCode($this->genCode());
+				$fields['code'] = $this->genCode();
 			}
 			$this->setDateCreated(dbdDB::date());
 		}
