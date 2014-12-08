@@ -28,7 +28,7 @@ class Codes extends DBController {
 			$AC = new AccessCode($this->getParam('access_code_id'));
 			$oldPhone = $AC->getPhone();
 			$AC->save($this->getParams());
-			if ($AC->getPhone() != $oldPhone) {
+			if ($AC->getPhone() != $oldPhone || $this->getParam('resend')) {
 				$this->sendSMS($AC->getPhone(), "Your front door access code for Will & Christine's building is " . $AC->getCode() . ". When you arrive, please dial 033 at the call box and follow the prompts.");
 			}
 			$this->forward(dbdURI::create('codes'));

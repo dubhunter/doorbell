@@ -56,6 +56,10 @@
 		{/foreach}
 		</select>
 
+	{if $access_code_id}
+		<label><input type="checkbox" name="resend" id="resend" value="true" /> Resend Instructions</label>
+	{/if}
+
 		<button name="submit" id="submit">Save</button>
 	</form>
 </div>
