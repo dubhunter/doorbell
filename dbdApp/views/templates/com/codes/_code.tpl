@@ -56,6 +56,8 @@
 		{/foreach}
 		</select>
 
+		<label><input type="checkbox" name="skip_directions" id="skip_directions" value="true" class="checkbox"{if $skip_directions} checked="checked"{/if} /> Skip Unit Directions</label>
+
 	{if $access_code_id}
 		<label><input type="checkbox" name="resend" id="resend" value="true" class="checkbox" /> Resend Instructions</label>
 	{/if}

@@ -17,6 +17,7 @@ class Door extends DBController {
 			foreach (array_merge(Subscriber::getAll(true), AccessCodeSubscriber::getAllSubscribers($AC->getId())) as $S) {
 				$this->sendSMS($S->getPhone(), $AC->getName() . ' just entered the building.');
 			}
+			$this->view->assign('skip_directions', $AC->getSkipDirections());
 			$this->setTemplate('twiml.open.tpl');
 		} catch (DBException $e) {
 			$this->setTemplate('twiml.invalid.tpl');

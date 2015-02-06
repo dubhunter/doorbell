@@ -35,6 +35,10 @@ class AccessCode extends dbdModel {
 		parent::setPhone($phone);
 	}
 
+	public function setSkipDirections($skip_directions) {
+		parent::setSkipDirections($skip_directions ? 1 : 0);
+	}
+
 	public function setValidFrom($date) {
 		parent::setValidFrom(dbdDB::date(strtotime($date)));
 	}
@@ -76,7 +80,11 @@ class AccessCode extends dbdModel {
 		}
 		if (isset($fields['phone'])) {
 			$this->setPhone($fields['phone']);
-			unset($fields['phone']);;
+			unset($fields['phone']);
+		}
+		if (isset($fields['skip_directions'])) {
+			$this->setSkipDirections($fields['skip_directions']);
+			unset($fields['skip_directions']);
 		}
 		if (isset($fields['valid_from_date'])) {
 			if ($fields['valid_from_time_meridian'] == 'pm') {
